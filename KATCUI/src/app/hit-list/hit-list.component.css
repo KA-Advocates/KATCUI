@@ -1,0 +1,17 @@
+.hitno {
+  font-weight: bold;
+}
+
+.highlight {
+  background-color: yellow
+}
+
+.report-button,
+.translate-button {
+  float: right;
+}
+
+.tcomment {
+  margin-left: 25px;
+  color: #444;
+}
