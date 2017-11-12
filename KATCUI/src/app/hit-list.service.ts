@@ -1,11 +1,10 @@
 import { Http } from '@angular/http';
-import { LanguageService } from '@angular/language-service/src/types';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class HitListService {
     constructor(private _http: Http,
-                private _langService: LanguageService) { }
+                private _langService: KATCLanguageService) { }
 
     getHits(rulename: string, filename: string) {
         const langObs = this._langService.getCurrentLanguage();
@@ -16,3 +15,4 @@ export class HitListService {
             return this._http.get(url).map(res => res.json());
         });
     }
+}

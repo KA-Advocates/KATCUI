@@ -1,37 +1,29 @@
+import { OverviewComponent } from './overview/overview.component';
+import { HitListComponent } from './hit-list/hit-list.component';
+import { RuleErrorsComponent } from './rule-errors/rule-errors.component';
+import { LintResultsComponent } from './lint-results/lint-results.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '/',
-    name: 'Home',
-    component: OverviewComponent,
-    useAsDefault: true
+    component: OverviewComponent
   },
   {
     path: '/overview/:filename',
-    name: 'Overview',
     component: OverviewComponent,
   },
   {
-    path: '/hits/:mname/:filename', //Machine name
-    name: 'Hitlist',
+    path: '/hits/:mname/:filename', // Machine name
     component: HitListComponent
   },
   {
     path: '/lint',
-    name: 'Lint results',
-    component: LintComponent
-  }
-    {
+    component: LintResultsComponent
+  }, {
     path: '/ruleerrors',
-    name: 'Rule errors',
     component: RuleErrorsComponent
-  }
-    {
-    path: '/**',
-    name: 'Catchall',
-    redirectTo: ['Home']
   }
 ];
 

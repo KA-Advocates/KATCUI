@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { KatclanguageService } from './katclanguage.service';
+import { KATClanguageService } from './katclanguage.service';
 
-describe('KatclanguageService', () => {
+describe('KATCLanguageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [KatclanguageService]
+      providers: [KATCLanguageService]
     });
   });
 
-  it('should be created', inject([KatclanguageService], (service: KatclanguageService) => {
+  it('should be created', inject([KATCLanguageService], (service: KATCLanguageService) => {
     expect(service).toBeTruthy();
   }));
 });

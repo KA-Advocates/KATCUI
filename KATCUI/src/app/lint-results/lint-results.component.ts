@@ -13,9 +13,9 @@ export class LintResultsComponent implements OnInit {
   routerCanReuse() { return false; }
 
   constructor(private _lintService: LintService,
-    private _langService: LanguageService) {
+    private _langService: KATCLanguageService) {
     this._langService.getCurrentLanguage().subscribe(
-      (lang) => this.lang = lang)
+      (lang) => this.lang = lang);
 
     this._lintService.getLintResults(this.lang)
       .subscribe(data => this.lintEntries = data,
