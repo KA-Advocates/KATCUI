@@ -1,0 +1,9 @@
+<h3>
+  Statistics by rule</h3>
+<div *ngFor="#rule of rulestats">
+  <div class="row">
+    <a class="{{rule.color}}" (click)="viewHitlist(rule)">
+      <!-- , -->
+      {{rule.name}}</a> ({{rule.num_hits}} hits)
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<h3>
+    Statistics by file</h3>
+<div *ngFor="#fileinfo of filestats">
+    <div class="row">
+        <a (click)="viewFile(fileinfo.filename)">{{fileinfo.filename}}</a>
+        <span>(
+            <span class="text-danger" *ngIf="fileinfo.errors">{{fileinfo.errors}} errors,</span>
+            <span class="text-warning" *ngIf="fileinfo.warnings">{{fileinfo.warnings}} warnings,</span>
+            <span class="text-primary" *ngIf="fileinfo.hits">{{fileinfo.hits}} hits,</span>
+            <span class="text-success" *ngIf="fileinfo.infos">{{fileinfo.infos}} infos,</span>
+            <span class="text-muted" *ngIf="fileinfo.notices">{{fileinfo.notices}} notices</span>
+            )</span>
+        <a href="{{fileinfo.translation_url}}" target="_blank">
+            <span class="label label-success">Translate on Crowdin</span>
+        </a>
+    </div>
+</div>

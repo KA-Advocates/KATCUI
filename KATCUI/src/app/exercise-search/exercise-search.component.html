@@ -1,0 +1,20 @@
+<h3>Search by comment (Experts only!)</h3>
+<div id="commentSearch" style="margin-bottom: 40px;">
+    <form>
+        <label for="searchTermInput">Search term</label>
+        <input type="text" id="searchTermInput" class="form-control" [(ngModel)]="term">
+        <button class="btn btn-info" (click)="searchTComment()" style="margin-top: 10px;">
+            Search by tcomment
+        </button>
+    </form>
+    <h5 *ngIf="working">
+        <span class="glyphicon glyphicon-time"></span>
+        Working...
+    </h5>
+    <div style="margin-top: 10px">
+        <div *ngFor="#hitcount of hits">
+            <a class="{{hitcount.rule.color}}" (click)="viewHitlist(hitcount.rule)">
+                {{hitcount.rule.name}}</a> ({{hitcount.count}} hits)
+        </div>
+    </div>
+</div>
