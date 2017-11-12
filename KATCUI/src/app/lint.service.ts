@@ -9,9 +9,7 @@ export class LintService {
         private _langService: KATCLanguageService) { }
 
     getLintResults() {
-        const langObs = this._langService.getCurrentLanguage();
-        return langObs.mergeMap((language) =>
-            this._http.get(`${language}/lint.json`).map(res => res.json())
-        );
+        const language = this._langService.getCurrentLanguage();
+        return this._http.get(`${language}/lint.json`).map(res => res.json());
     }
 }

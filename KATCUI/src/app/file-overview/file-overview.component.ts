@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { Router } from '@angular/router/src/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-file-overview',

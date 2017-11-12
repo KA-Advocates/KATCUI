@@ -9,10 +9,8 @@ export class RuleErrorService {
         private _langService: KATCLanguageService) { }
 
     getRuleErrors() {
-        const langObs = this._langService.getCurrentLanguage();
-        return langObs.mergeMap((language) => {
-            return this._http.get(`${language}/ruleerrors.json`)
-                .map(res => res.json());
-        });
+        const language = this._langService.getCurrentLanguage();
+        return this._http.get(`${language}/ruleerrors.json`)
+            .map(res => res.json());
     }
 }

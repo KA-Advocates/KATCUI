@@ -10,10 +10,7 @@ export class OverviewService {
 
     getOverviewData(filename: string = null) {
         const urlProto = filename == null ? `index.json` : `${filename}/index.json`;
-        const langObs = this._langService.getCurrentLanguage();
-        return langObs.mergeMap((language) =>
-            this._http.get(`${language}/${urlProto}`)
-                    .map(res => res.json())
-        )
+        const language = this._langService.getCurrentLanguage();
+        return this._http.get(`${language}/${urlProto}`).map(res => res.json());
     }
 }
