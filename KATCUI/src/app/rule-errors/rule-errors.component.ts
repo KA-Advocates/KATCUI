@@ -1,3 +1,4 @@
+import {RuleErrorService} from '../rule-error.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({

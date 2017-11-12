@@ -1,6 +1,6 @@
+import {KATCLanguageService} from './katc-language.service';
 import {Router} from '@angular/router';
 import { Component } from '@angular/core';
-import { KATCLanguageService } from './katclanguage.service';
 
 @Component({
     selector: 'app-root',
@@ -22,7 +22,6 @@ export class AppComponent {
         console.log(evt.target.value);
         this.language = evt.target.value;
         this._langService.storeLanguage(this.language);
-        //this._router.navigate();
     }
 
 }

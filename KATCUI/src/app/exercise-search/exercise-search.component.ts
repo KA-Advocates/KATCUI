@@ -1,7 +1,9 @@
 import {Router} from '@angular/router';
 import {Http} from '@angular/http';
-import {KATCLanguageService} from '../katclanguage.service';
+import {KATCLanguageService} from '../katc-language.service';
 import { Component, OnInit, ViewEncapsulation, Injector } from '@angular/core';
+
+import { Observable } from 'rxjs';
 
 class HitCount {
     constructor(public rule, public count: number) {
@@ -21,9 +23,9 @@ export class ExerciseSearchComponent implements OnInit {
     working: boolean;
     router: Router;
 
-    constructor(injector: Injector, private _http: Http,
+    constructor(private _http: Http,
+                private router: Router,
                 private _langService: KATCLanguageService) {
-        this.router = injector.parent.get(Router);
     }
 
     /**
@@ -42,7 +44,7 @@ export class ExerciseSearchComponent implements OnInit {
                 .count(hit => hit.tcomment.includes(this.term))
                 .filter(count => count > 0)
                 .map(count => new HitCount(rule, count))
-                .catch(Rx.Observable.empty())
+                .catch(Observable.empty())
         }).toArray().subscribe(hits => this.hits = hits,
             err => console.error(err),
             () => this.working = false)

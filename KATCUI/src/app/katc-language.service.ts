@@ -1,5 +1,8 @@
+import { AppComponent } from './app.component';
 import {LanguageInfo} from './language-info';
 import { Injectable, Injector } from '@angular/core';
+
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class KATCLanguageService {
@@ -65,9 +68,9 @@ export class KATCLanguageService {
   }
 
   getCurrentLanguage(language: string, rulename: string) {
-    let appPromise = this._injector.parent.get(KATCApp)
-    return Rx.Observable.fromPromise(appPromise)
-      .map((app) => app.language)
+    const appPromise = this._injector.get(AppComponent);
+    return Observable.fromPromise(appPromise)
+      .map((app) => app.language);
   }
 
 }

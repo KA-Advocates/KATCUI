@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { KATClanguageService } from './katclanguage.service';
+import { KATClanguageService } from './katc-language.service';
 
 describe('KATCLanguageService', () => {
   beforeEach(() => {

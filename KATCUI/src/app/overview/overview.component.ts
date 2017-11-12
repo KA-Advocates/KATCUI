@@ -1,3 +1,5 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import {OverviewService} from '../overview.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -15,24 +17,24 @@ export class OverviewComponent implements OnInit {
   routerCanReuse() { return false; }
 
   viewHitlist(rule) {
-    //this._router.navigate();
     this.router.navigate(['Hitlist', {
       mname: rule.machine_name,
-      filename: this.filename === null ? "" : this.filename
-    }])
+      filename: this.filename === null ? '' : this.filename
+    }]);
   }
 
-  constructor(public overviewService: OverviewService, injector: Injector) {
-    const routeParams = injector.parent.get(RouteParams);
-    //filename Might be null for total overview
-    this.filename = routeParams.get("filename")
+  constructor(public overviewService: OverviewService,
+    private router: Router,
+    activatedRoute: ActivatedRoute) {
+    // filename might be null for total overview
+    this.filename = activatedRoute['filename'];
     this.overviewService.getOverviewData(this.filename)
       .subscribe((data) => {
         this.rulestats = data.stats;
         this.filestats = data.files;
         this.data = data;
       },
-      error => alert("Could not load overview data: " + error.status))
+      error => alert(`Could not load overview data: ${error.status}`))
   }
   ngOnInit() {
   }

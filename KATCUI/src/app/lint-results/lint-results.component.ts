@@ -1,3 +1,5 @@
+import {LintService} from '../lint.service';
+import {KATCLanguageService} from '../katclanguage.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Http } from '@angular/http';
-import { KATCLanguageService } from './katclanguage.service';
+import { KATCLanguageService } from './katc-language.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
