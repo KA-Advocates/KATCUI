@@ -1,8 +1,8 @@
 import { Hit } from '../hit';
 import {Router} from '@angular/router';
 import {Http} from '@angular/http';
-import {KATCLanguageService} from '../katc-language.service';
 import { Component, OnInit, ViewEncapsulation, Injector } from '@angular/core';
+import { CurrentLanguageService } from '../current-language.service';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/empty';
@@ -34,7 +34,7 @@ export class ExerciseSearchComponent implements OnInit {
 
     constructor(private _http: Http,
                 private router: Router,
-                private _langService: KATCLanguageService) {
+                private curlang: CurrentLanguageService) {
     }
 
     getHits(url): Observable<Hit> {
@@ -59,7 +59,7 @@ export class ExerciseSearchComponent implements OnInit {
                 // .catch(Observable.empty);
         }).toArray().subscribe(hits => this.hits = hits,
             err => console.error(err),
-            () => this.working = false)
+            () => this.working = false);
     }
 
     viewHitlist(rule) {
@@ -71,7 +71,7 @@ export class ExerciseSearchComponent implements OnInit {
     }
 
     private getAllRuleURLs() {
-        const language = this._langService.getCurrentLanguage();
+        const language = this.curlang.language();
         return this._http.get(`/${language}/index.json`)
             .map(res => res.json())
             .map(data => data.stats)

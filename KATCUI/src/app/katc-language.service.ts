@@ -10,8 +10,6 @@ export class KATCLanguageService {
 
     defaultLanguage = 'de';
 
-    constructor(private _injector: Injector) { }
-
     storageAvailable() {
         try {
             const storage = window.localStorage;
@@ -66,11 +64,6 @@ export class KATCLanguageService {
             }
         }
         return null;
-    }
-
-    getCurrentLanguage(): string {
-        const katc = this._injector.get(AppComponent);
-        return katc.language;
     }
 
 }

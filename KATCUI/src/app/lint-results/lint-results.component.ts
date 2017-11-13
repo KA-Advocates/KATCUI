@@ -1,6 +1,6 @@
 import { LintService } from '../lint.service';
-import { KATCLanguageService } from '../katc-language.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { CurrentLanguageService } from '../current-language.service';
 
 @Component({
     selector: 'app-lint-results',
@@ -16,11 +16,11 @@ export class LintResultsComponent implements OnInit {
     routerCanReuse() { return false; }
 
     constructor(private _lintService: LintService,
-        private _langService: KATCLanguageService) {
+        private langService: CurrentLanguageService) {
     }
 
     ngOnInit() {
-        this.lang = this._langService.getCurrentLanguage();
+        this.lang = this.langService.language();
         this._lintService.getLintResults()
             .subscribe(data => this.lintEntries = data,
             error => alert(`Could not load lint data: ${error.status}`));

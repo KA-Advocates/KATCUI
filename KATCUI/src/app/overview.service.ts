@@ -1,3 +1,4 @@
+import { CurrentLanguageService } from './current-language.service';
 import {KATCLanguageService} from './katc-language.service';
 import {Http} from '@angular/http';
 import { Injectable } from '@angular/core';
@@ -6,11 +7,11 @@ import { Injectable } from '@angular/core';
 export class OverviewService {
 
     constructor(private _http: Http,
-                private _langService: KATCLanguageService) {}
+                private lang: CurrentLanguageService) {}
 
     getOverviewData(filename: string = null) {
         const urlProto = filename == null ? `index.json` : `${filename}/index.json`;
-        const language = this._langService.getCurrentLanguage();
+        const language = this.lang.language();
         return this._http.get(`${language}/${urlProto}`).map(res => res.json());
     }
 }

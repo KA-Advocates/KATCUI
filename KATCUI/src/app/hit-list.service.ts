@@ -1,14 +1,14 @@
-import {KATCLanguageService} from './katc-language.service';
 import {Http} from '@angular/http';
 import { Injectable } from '@angular/core';
+import { CurrentLanguageService } from './current-language.service';
 
 @Injectable()
 export class HitListService {
     constructor(private _http: Http,
-                private _langService: KATCLanguageService) { }
+                private lang: CurrentLanguageService) { }
 
     getHits(rulename: string, filename: string) {
-        const language = this._langService.getCurrentLanguage();
+        const language = this.lang.language();
         // Map lang to filename
         const url = filename ? `${language}/${filename}/${rulename}.json`
             : `${language}/${rulename}.json`;

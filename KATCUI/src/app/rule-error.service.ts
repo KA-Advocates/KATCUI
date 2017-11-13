@@ -1,15 +1,15 @@
+import { CurrentLanguageService } from './current-language.service';
 import {Http} from '@angular/http';
-import {KATCLanguageService} from './katc-language.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class RuleErrorService {
 
     constructor(private _http: Http,
-        private _langService: KATCLanguageService) { }
+        private lang: CurrentLanguageService) { }
 
     getRuleErrors() {
-        const language = this._langService.getCurrentLanguage();
+        const language = this.lang.language();
         return this._http.get(`${language}/ruleerrors.json`)
             .map(res => res.json());
     }
