@@ -1,6 +1,6 @@
 <h3>
     Statistics by file</h3>
-<div *ngFor="#fileinfo of filestats">
+<div *ngFor="let fileinfo of filestats">
     <div class="row">
         <a (click)="viewFile(fileinfo.filename)">{{fileinfo.filename}}</a>
         <span>(

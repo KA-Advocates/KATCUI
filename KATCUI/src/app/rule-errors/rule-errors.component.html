@@ -1,4 +1,4 @@
-<div class="row" *ngIf="rule_errors !== null && rule_errors.length > 0" *ngFor="#error of rule_errors">
+<div class="row" *ngIf="rule_errors !== null && rule_errors.length > 0" *ngFor="let error of rule_errors">
     {{error}}
 </div>
 <div class="row" *ngIf="rule_errors !== null && rule_errors.length == 0">

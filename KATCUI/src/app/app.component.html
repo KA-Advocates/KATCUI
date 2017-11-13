@@ -12,7 +12,7 @@
                 <a style="color: #5e5e5e;" [routerLink]="['Home']">KATranslationCheck Deutsch</a>
                 <div style="padding-left: 8px; display: inline-block;">
                     <select [(ngModel)]="language" (change)="onLanguageChange($event)">>
-                        <option *ngFor="#langobj of languages" [value]="langobj.code">{{langobj.name}}</option>
+                        <option *ngFor="let langobj of languages" [value]="langobj.code">{{langobj.name}}</option>
                     </select>
                 </div>
             </div>
