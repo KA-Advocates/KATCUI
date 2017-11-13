@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,6 +15,12 @@ import { FileOverviewComponent } from './file-overview/file-overview.component';
 import { OverviewComponent } from './overview/overview.component';
 import { ExerciseSearchComponent } from './exercise-search/exercise-search.component';
 import { LintResultsComponent } from './lint-results/lint-results.component';
+import { KATCLanguageService } from './katc-language.service';
+import { OverviewService } from './overview.service';
+import { CurrentLanguageService } from './current-language.service';
+import { HitListService } from './hit-list.service';
+import { LintService } from './lint.service';
+import { RuleErrorService } from './rule-error.service';
 
 
 @NgModule({
@@ -32,9 +39,17 @@ import { LintResultsComponent } from './lint-results/lint-results.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    KATCLanguageService,
+    OverviewService,
+    CurrentLanguageService,
+    HitListService,
+    LintService,
+    RuleErrorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

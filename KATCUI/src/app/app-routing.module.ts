@@ -7,22 +7,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '/',
+    path: '',
     component: OverviewComponent
   },
   {
-    path: '/overview/:filename',
+    path: 'overview/:filename',
     component: OverviewComponent,
   },
   {
-    path: '/hits/:mname/:filename', // Machine name
+    path: 'hits/:mname/:filename', // Machine name
     component: HitListComponent
   },
   {
-    path: '/lint',
+    path: 'lint',
     component: LintResultsComponent
   }, {
-    path: '/ruleerrors',
+    path: 'ruleerrors',
     component: RuleErrorsComponent
   }
 ];
