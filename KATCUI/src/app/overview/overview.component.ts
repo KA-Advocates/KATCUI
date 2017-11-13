@@ -29,12 +29,11 @@ export class OverviewComponent implements OnInit {
     // filename might be null for total overview
     this.filename = activatedRoute['filename'];
     this.overviewService.getOverviewData(this.filename)
-      .subscribe((data) => {
+      .then(data => {
         this.rulestats = data.stats;
         this.filestats = data.files;
         this.data = data;
-      },
-      error => alert(`Could not load overview data: ${error.status}`))
+      }).catch(error => alert(`Could not load overview data: ${error.status}`));
   }
   ngOnInit() {
   }

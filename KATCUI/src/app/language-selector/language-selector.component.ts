@@ -2,6 +2,7 @@ import { KATCLanguageService } from '../katc-language.service';
 import { CurrentLanguageService } from '../current-language.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { LanguageInfo } from '../language-info';
 
 @Component({
     selector: 'app-language-selector',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class LanguageSelectorComponent implements OnInit {
     private language = 'de';
+    private allLanguages: [LanguageInfo] =[];
 
     constructor(private _langService: KATCLanguageService,
         private _curlangService: CurrentLanguageService,
@@ -19,6 +21,7 @@ export class LanguageSelectorComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.allLanguages = this._langService.allLanguages();
         this._curlangService.language().then(lang => {
             console.log(`Current language: ${lang}`);
             this.language = lang;
