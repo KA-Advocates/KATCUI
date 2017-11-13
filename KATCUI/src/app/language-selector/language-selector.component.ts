@@ -12,7 +12,7 @@ import { LanguageInfo } from '../language-info';
 })
 export class LanguageSelectorComponent implements OnInit {
     private language = 'de';
-    private allLanguages: [LanguageInfo] =[];
+    private allLanguages: LanguageInfo[] = [];
 
     constructor(private _langService: KATCLanguageService,
         private _curlangService: CurrentLanguageService,
@@ -22,7 +22,7 @@ export class LanguageSelectorComponent implements OnInit {
 
     ngOnInit() {
         this.allLanguages = this._langService.allLanguages();
-        this._curlangService.language().then(lang => {
+        this._curlangService.language().subscribe(lang => {
             console.log(`Current language: ${lang}`);
             this.language = lang;
         });
@@ -32,7 +32,7 @@ export class LanguageSelectorComponent implements OnInit {
         console.log(`Changing language to ${evt.target.value} ...`);
         this.language = evt.target.value;
         // Persist language
-        this._langService.storeLanguage(this.language);
+        this._langService.storeLanguage(this.language.code);
         // Navigate to language
         this._router.navigateByUrl(`/${this.language}`);
     }

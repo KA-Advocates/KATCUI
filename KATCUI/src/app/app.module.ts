@@ -22,6 +22,7 @@ import { HitListService } from './hit-list.service';
 import { LintService } from './lint.service';
 import { RuleErrorService } from './rule-error.service';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
+import { StartRedirectComponent } from './start-redirect/start-redirect.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { LanguageSelectorComponent } from './language-selector/language-selector
     OverviewComponent,
     ExerciseSearchComponent,
     LintResultsComponent,
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    StartRedirectComponent
   ],
   imports: [
     BrowserModule,

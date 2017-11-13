@@ -4,12 +4,12 @@ import { RuleErrorsComponent } from './rule-errors/rule-errors.component';
 import { LintResultsComponent } from './lint-results/lint-results.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { StartRedirectComponent } from './start-redirect/start-redirect.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/de',
-    pathMatch: 'full'
+    component: StartRedirectComponent // Redirects to the appropriate language
   },
   {
     path: ':lang',
