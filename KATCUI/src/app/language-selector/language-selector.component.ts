@@ -20,7 +20,7 @@ export class LanguageSelectorComponent implements OnInit {
 
     ngOnInit() {
         this._curlangService.language().then(lang => {
-            console.log(`Current language: ${lang}`)
+            console.log(`Current language: ${lang}`);
             this.language = lang;
         });
     }

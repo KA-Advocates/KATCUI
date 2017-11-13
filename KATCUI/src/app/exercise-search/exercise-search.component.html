@@ -2,7 +2,7 @@
 <div id="commentSearch" style="margin-bottom: 40px;">
     <form>
         <label for="searchTermInput">Search term</label>
-        <input type="text" id="searchTermInput" class="form-control" [(ngModel)]="term">
+        <input type="text" id="searchTermInput" class="form-control" [(ngModel)]="term" name="searchTerm">
         <button class="btn btn-info" (click)="searchTComment()" style="margin-top: 10px;">
             Search by tcomment
         </button>
