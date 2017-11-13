@@ -21,6 +21,7 @@ import { CurrentLanguageService } from './current-language.service';
 import { HitListService } from './hit-list.service';
 import { LintService } from './lint.service';
 import { RuleErrorService } from './rule-error.service';
+import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { RuleErrorService } from './rule-error.service';
     FileOverviewComponent,
     OverviewComponent,
     ExerciseSearchComponent,
-    LintResultsComponent
+    LintResultsComponent,
+    LanguageSelectorComponent
   ],
   imports: [
     BrowserModule,

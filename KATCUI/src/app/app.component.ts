@@ -10,27 +10,9 @@ import { CurrentLanguageService } from './current-language.service';
 })
 export class AppComponent {
     title = 'KATC';
-    languages: any;
 
-    language(): string {
-        return this._curlangService.language;
-    }
 
-    setLanguage(lang: string) {
-        this._curlangService.language = lang;
-        this._router.navigateByUrl('/');
-    }
-
-    constructor(private _langService: KATCLanguageService,
-        private _curlangService: CurrentLanguageService,
-        private _router: Router) {
-        this.languages = _langService.allLanguages();
-    }
-
-    onLanguageChange(evt) {
-        console.log(evt.target.value);
-        this.language = evt.target.value;
-        this._langService.storeLanguage(this.language());
+    constructor(private _router: Router) {
     }
 
 }

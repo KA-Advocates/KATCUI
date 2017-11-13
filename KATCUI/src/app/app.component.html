@@ -11,9 +11,7 @@
             <div class="navbar-brand page-scroll">
                 <a style="color: #5e5e5e;" [routerLink]="['Home']">KATranslationCheck Deutsch</a>
                 <div style="padding-left: 8px; display: inline-block;">
-                    <select [(ngModel)]="language" (change)="onLanguageChange($event)">>
-                        <option *ngFor="let langobj of languages" [value]="langobj.code">{{langobj.name}}</option>
-                    </select>
+                    <app-language-selector></app-language-selector>
                 </div>
             </div>
         </div>
