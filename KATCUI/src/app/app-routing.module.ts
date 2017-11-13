@@ -8,21 +8,26 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/de',
+    pathMatch: 'full'
+  },
+  {
+    path: ':lang',
     component: OverviewComponent
   },
   {
-    path: 'overview/:filename',
+    path: ':lang/overview/:filename',
     component: OverviewComponent,
   },
   {
-    path: 'hits/:mname/:filename', // Machine name
+    path: ':lang/hits/:mname/:filename', // Machine name
     component: HitListComponent
   },
   {
-    path: 'lint',
+    path: ':lang/lint',
     component: LintResultsComponent
   }, {
-    path: 'ruleerrors',
+    path: ':lang/ruleerrors',
     component: RuleErrorsComponent
   }
 ];

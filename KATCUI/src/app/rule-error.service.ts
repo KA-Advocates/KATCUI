@@ -1,15 +1,15 @@
 import { CurrentLanguageService } from './current-language.service';
-import {Http} from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class RuleErrorService {
 
-    constructor(private _http: Http,
+    constructor(private _http: HttpClient,
         private lang: CurrentLanguageService) { }
 
     getRuleErrors() {
-        const language = this.lang.language();
+        const language = this.lang.language;
         return this._http.get(`${language}/ruleerrors.json`)
             .map(res => res.json());
     }

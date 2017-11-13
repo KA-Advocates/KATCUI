@@ -1,6 +1,6 @@
 import { Hit } from '../hit';
 import {Router} from '@angular/router';
-import {Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation, Injector } from '@angular/core';
 import { CurrentLanguageService } from '../current-language.service';
 
@@ -32,7 +32,7 @@ export class ExerciseSearchComponent implements OnInit {
     working: boolean;
     rule: any;
 
-    constructor(private _http: Http,
+    constructor(private _http: HttpClient,
                 private router: Router,
                 private curlang: CurrentLanguageService) {
     }
@@ -71,7 +71,7 @@ export class ExerciseSearchComponent implements OnInit {
     }
 
     private getAllRuleURLs() {
-        const language = this.curlang.language();
+        const language = this.curlang.language;
         return this._http.get(`/${language}/index.json`)
             .map(res => res.json())
             .map(data => data.stats)
