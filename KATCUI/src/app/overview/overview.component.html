@@ -6,6 +6,6 @@
 <h2 *ngIf="filename !== null">KATC overview for
     <code class="hittext">{{filename}}</code>
 </h2>
-<rule-overview [rulestats]="rulestats" [filename]="filename"></rule-overview>
-<file-overview [filestats]="filestats" *ngIf="filestats"></file-overview>
-<search-tcomment></search-tcomment>
+<app-rule-overview [rulestats]="rulestats" [filename]="filename"></app-rule-overview>
+<app-file-overview [filestats]="filestats" *ngIf="filestats"></app-file-overview>
+<app-exercise-search></app-exercise-search>

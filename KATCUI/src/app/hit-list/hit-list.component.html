@@ -1,5 +1,5 @@
-<rule-details [rule]="rule"></rule-details>
-<div class="row hit" *ngFor="let hit of hits | commentfilter:commentFilterArg; let idx = index" *>
+<app-rule-details [rule]="rule"></app-rule-details>
+<div class="row hit" *ngFor="let idx = index ; let hit of hits | commentfilter:commentFilterArg">
     <button class="btn-danger btn report-button">Report error</button>
     <a target="_blank" href="{{hit.crowdinLink}}" class="btn-success btn translate-button">Translate on Crowdin</a>
     <h3>
@@ -17,9 +17,9 @@
 
     <div class="imagelist" *ngIf="hit.origImages">
         <button class="btn-primary btn show-images-button">Show images</button>
-        <h4>Original images</h4>
+        <h4 *ngIf="hit.origImages">Original images</h4>
         <a class="image-link" href="{{img}}" *ngFor="let img of hit.origImages">{{img}}</a>
-        <h4>Translated images</h4>
+        <h4 *ngIf="hit.translatedImages">Translated images</h4>
         <a class="image-link" href="{{img}}" *ngFor="let img of hit.translatedImages">{{img}}</a>
     </div>
     <hr/>

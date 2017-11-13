@@ -1,5 +1,7 @@
-<div class="row" *ngIf="rule_errors !== null && rule_errors.length > 0" *ngFor="let error of rule_errors">
-    {{error}}
+<div *ngIf="rule_errors !== null && rule_errors.length > 0">
+    <div class="row" *ngFor="let error of rule_errors">
+        {{error}}
+    </div>
 </div>
 <div class="row" *ngIf="rule_errors !== null && rule_errors.length == 0">
     <h3 style="color: green">No rule errors</h3>
