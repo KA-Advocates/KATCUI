@@ -1,4 +1,3 @@
-import { AppComponent } from './app.component';
 import { LanguageInfo } from './language-info';
 import { Injectable, Injector } from '@angular/core';
 
