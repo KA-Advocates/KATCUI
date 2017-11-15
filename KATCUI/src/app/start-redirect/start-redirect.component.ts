@@ -22,7 +22,7 @@ export class StartRedirectComponent implements OnInit {
         // Try to read language
         const lang = this._langService.getStoredLanguage(); // stored language or default
         console.log(`Redirecting to stored or default language ${lang}`);
-        this._router.navigate([`langinfo`, lang]);
+        this._router.navigate(['overview', lang]);
     }
 
 }

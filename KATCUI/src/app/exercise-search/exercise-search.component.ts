@@ -19,6 +19,15 @@ class HitCount {
     }
 }
 
+class TransferHitInfo {
+    rule: any;
+    hits: any;
+}
+
+class TransferRuleURLs {
+    stats: any;
+}
+
 @Component({
     selector: 'app-exercise-search',
     templateUrl: './exercise-search.component.html',
@@ -38,8 +47,7 @@ export class ExerciseSearchComponent implements OnInit {
     }
 
     getHits(url): Observable<Hit> {
-        return this._http.get(url)
-            .map(res => res.json())
+        return this._http.get<TransferHitInfo>(url)
             .do(data => this.rule = data.rule)
             .flatMap(data => data.hits);
     }
@@ -72,7 +80,7 @@ export class ExerciseSearchComponent implements OnInit {
 
     private getAllRuleURLs() {
         const language = this.curlang.language;
-        return this._http.get(`/${language}/index.json`)
+        return this._http.get<TransferRuleURLs>(`/${language}/index.json`)
             .map(data => data.stats)
             .filter(stat => stat.num_hits > 0)
             .map(stat => `/${language}/${stat.machine_name}.json`)

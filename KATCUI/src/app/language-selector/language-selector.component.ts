@@ -32,9 +32,8 @@ export class LanguageSelectorComponent implements OnInit {
         console.log(`Changing language to ${evt.target.value} ...`);
         this.language = evt.target.value;
         // Persist language
-        this._langService.storeLanguage(this.language.code);
+        this._langService.storeLanguage(this.language);
         // Navigate to language
-        this._router.navigateByUrl(`/${this.language}`);
+        this._router.navigate(['/overview', this.language]);
     }
-
 }

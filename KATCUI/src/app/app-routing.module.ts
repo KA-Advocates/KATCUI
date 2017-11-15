@@ -12,7 +12,7 @@ const routes: Routes = [
     component: StartRedirectComponent // Redirects to the appropriate language
   },
   {
-    path: 'langinfo/:lang',
+    path: 'overview/:lang',
     component: OverviewComponent
   },
   {
