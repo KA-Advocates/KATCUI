@@ -2,8 +2,8 @@
     <p *ngIf="data.pageTimestamp">Page generated at {{data.pageTimestamp}}</p>
     <p *ngIf="data.downloadTimestamp">Translations downloaded at {{data.downloadTimestamp}}</p>
 </div>
-<h2 *ngIf="filename === null">KATC overview</h2>
-<h2 *ngIf="filename !== null">KATC overview for
+<h2 *ngIf="filename">KATC overview {{this.curlang.language() | async}}</h2>
+<h2 *ngIf="!filename">KATC overview for
     <code class="hittext">{{filename}}</code>
 </h2>
 <app-rule-overview [rulestats]="rulestats" [filename]="filename"></app-rule-overview>

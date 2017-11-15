@@ -23,6 +23,7 @@ export class KATCLanguageService {
 
     storeLanguage(lang: string) {
         if (this.storageAvailable()) {
+            console.log(`Storing new language: ${lang}`)
             localStorage.setItem('katc-language', lang);
         }
     }
@@ -30,11 +31,7 @@ export class KATCLanguageService {
     getStoredLanguage(): string {
         if (this.storageAvailable()) {
             const storedLang = window.localStorage.getItem('katc-language');
-            if (!storedLang) {
-                return this.defaultLanguage;
-            }
-            console.log(storedLang);
-            return storedLang;
+            return storedLang ? storedLang : this.defaultLanguage;
         } else {
             return this.defaultLanguage;
         }
