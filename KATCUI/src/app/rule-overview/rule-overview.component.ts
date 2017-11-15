@@ -1,4 +1,4 @@
-import {Router} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewEncapsulation, Injector, Input } from '@angular/core';
 
 @Component({
@@ -12,15 +12,18 @@ export class RuleOverviewComponent implements OnInit {
     @Input() rulestats: any;
     @Input() filename: string;
 
-    constructor(private router: Router) {
+    constructor(private router: Router,
+        private route: ActivatedRoute) {
     }
 
     viewHitlist(rule) {
-        // this._router.navigate();
-        this.router.navigate(['Hitlist', {
-            mname: rule.machine_name,
-            filename: this.filename === null ? '' : this.filename
-        }]);
+        const lang = this.route.snapshot.params['lang'];
+        console.log(`Viewing rule ${rule.name} for ${lang}`);
+        this.router.navigate(['/hits',
+            lang,
+            rule.machine_name,
+            this.filename === null ? '' : this.filename
+        ]);
     }
 
     ngOnInit() {
