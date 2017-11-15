@@ -23,7 +23,7 @@ export class StartRedirectComponent implements OnInit {
         const lang = this._langService.getStoredLanguage(); // stored language or default
         // Redirect to index page for that language
         console.log(`Redirecting to stored or default language ${lang}`);
-        this._router.navigate(['/overview', lang]);
+        this._router.navigate(['/overview', {lang: lang}]);
     }
 
 }

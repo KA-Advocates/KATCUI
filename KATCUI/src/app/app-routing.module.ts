@@ -12,23 +12,19 @@ const routes: Routes = [
     component: StartRedirectComponent // Redirects to the appropriate language
   },
   {
-    path: 'overview/:lang',
+    path: 'overview', // :lang, [:filename]
     component: OverviewComponent
   },
   {
-    path: 'overview/:lang/:filename',
-    component: OverviewComponent,
-  },
-  {
-    path: 'hits/:lang/:mname/:filename', // Machine name
+    path: 'hits', // :lang/:mname/:filename
     component: HitListComponent
   },
   {
-    path: 'lint/:lang',
+    path: 'lint', // :lang
     component: LintResultsComponent
   },
   {
-    path: 'rule-errors/:lang',
+    path: 'rule-errors', // :lang
     component: RuleErrorsComponent
   }
 ];

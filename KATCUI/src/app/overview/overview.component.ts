@@ -1,7 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { OverviewService } from '../overview.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { CurrentLanguageService } from '../current-language.service';
 
 @Component({
     selector: 'app-overview',
@@ -17,10 +16,7 @@ export class OverviewComponent implements OnInit {
 
     constructor(public overviewService: OverviewService,
         private router: Router,
-        activatedRoute: ActivatedRoute,
-        curlang: CurrentLanguageService) {
-        // filename might be null for total overview
-        this.filename = activatedRoute['filename'];
+        private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {

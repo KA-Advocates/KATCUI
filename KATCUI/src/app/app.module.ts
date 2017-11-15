@@ -18,7 +18,6 @@ import { ExerciseSearchComponent } from './exercise-search/exercise-search.compo
 import { LintResultsComponent } from './lint-results/lint-results.component';
 import { KATCLanguageService } from './katc-language.service';
 import { OverviewService } from './overview.service';
-import { CurrentLanguageService } from './current-language.service';
 import { HitListService } from './hit-list.service';
 import { LintService } from './lint.service';
 import { RuleErrorService } from './rule-error.service';
@@ -50,7 +49,6 @@ import { StartRedirectComponent } from './start-redirect/start-redirect.componen
   providers: [
     KATCLanguageService,
     OverviewService,
-    CurrentLanguageService,
     HitListService,
     LintService,
     RuleErrorService,

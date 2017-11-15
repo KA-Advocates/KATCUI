@@ -1,7 +1,6 @@
 import {KATCLanguageService} from './katc-language.service';
 import {Router} from '@angular/router';
 import { Component } from '@angular/core';
-import { CurrentLanguageService } from './current-language.service';
 
 @Component({
     selector: 'app-root',
@@ -10,7 +9,6 @@ import { CurrentLanguageService } from './current-language.service';
 })
 export class AppComponent {
     title = 'KATC';
-
 
     constructor(private _router: Router) {
     }

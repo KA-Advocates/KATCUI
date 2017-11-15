@@ -1,4 +1,4 @@
-import { CurrentLanguageService } from './current-language.service';
+import { BaseURLService } from './base-url.service';
 import { HttpClient } from '@angular/common/http';
 import { KATCLanguageService } from './katc-language.service';
 import { Injectable } from '@angular/core';
@@ -7,10 +7,10 @@ import { Injectable } from '@angular/core';
 export class LintService {
 
     constructor(private _http: HttpClient,
-        private lang: CurrentLanguageService) { }
+        private _baseURL: BaseURLService) { }
 
-    getLintResults() {
-        const language = this.lang.language;
-        return this._http.get<any[]>(`${language}/lint.json`);
+    getLintResults(language: string) {
+        return this._http.get<any[]>(
+            `${this._baseURL.getBaseURL()}/${language}/lint.json`);
     }
 }

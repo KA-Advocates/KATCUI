@@ -19,16 +19,17 @@ export class HitListComponent implements OnInit {
 
     ngOnInit() {
         this.activatedRoute.params.subscribe(params => {
+            const lang = params['lang'];
             const mname = params['mname'];
             const filename = params['filename'];
             console.log(`Route machine name: ${mname}`);
             console.log(`Route filename: ${filename}`);
-            this._hitListService.getHits(mname, filename)
+            this._hitListService.getHits(lang, mname, filename)
                 .subscribe(data => {
                     this.rule = data.rule;
                     this.hits = data.hits;
                 },
                 error => alert('Could not load hit data: ' + error.status))
-        })
+        });
     }
 }

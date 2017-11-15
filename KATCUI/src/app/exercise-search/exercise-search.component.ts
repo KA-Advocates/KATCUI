@@ -2,7 +2,6 @@ import { Hit } from '../hit';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation, Injector } from '@angular/core';
-import { CurrentLanguageService } from '../current-language.service';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/empty';
@@ -42,8 +41,7 @@ export class ExerciseSearchComponent implements OnInit {
     rule: any;
 
     constructor(private _http: HttpClient,
-                private router: Router,
-                private curlang: CurrentLanguageService) {
+                private router: Router) {
     }
 
     getHits(url): Observable<Hit> {
@@ -79,7 +77,7 @@ export class ExerciseSearchComponent implements OnInit {
     }
 
     private getAllRuleURLs() {
-        const language = this.curlang.language;
+        const language = 'de'; //TODO
         return this._http.get<TransferRuleURLs>(`/${language}/index.json`)
             .map(data => data.stats)
             .filter(stat => stat.num_hits > 0)
