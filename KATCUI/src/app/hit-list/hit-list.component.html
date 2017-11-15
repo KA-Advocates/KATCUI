@@ -1,5 +1,5 @@
 <app-rule-details [rule]="rule"></app-rule-details>
-<div class="row hit" *ngFor="let idx = index ; let hit of hits | commentfilter:commentFilterArg">
+<div class="row hit" *ngFor="let idx = index ; let hit of hits">
     <button class="btn-danger btn report-button">Report error</button>
     <a target="_blank" href="{{hit.crowdinLink}}" class="btn-success btn translate-button">Translate on Crowdin</a>
     <h3>

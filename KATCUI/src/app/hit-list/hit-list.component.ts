@@ -21,10 +21,8 @@ export class HitListComponent implements OnInit {
         this.activatedRoute.params.subscribe(params => {
             const mname = params['mname'];
             const filename = params['filename'];
-            this.commentFilterArg = params['commentFilter'];
             console.log(`Route machine name: ${mname}`);
             console.log(`Route filename: ${filename}`);
-            console.log(`Comment filter: ${this.commentFilterArg}`);
             this._hitListService.getHits(mname, filename)
                 .subscribe(data => {
                     this.rule = data.rule;

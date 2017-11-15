@@ -19,11 +19,11 @@ export class HitListService {
     }
 
     getHits(rulename: string, filename: string): Observable<HitInfo> {
-        const language = this.lang.language;
-        // Map lang to filename
-        const baseURL = this.baseURLService.getBaseURL();
-        const url = filename ? `${baseURL}/${language}/${filename}/${rulename}.json`
-            : `${baseURL}/${language}/${rulename}.json`;
-        return this._http.get<HitInfo>(url);
+        return this.lang.language().flatMap(language => {
+            const baseURL = this.baseURLService.getBaseURL();
+            const url = filename ? `${baseURL}/${language}/${filename}/${rulename}.json`
+                : `${baseURL}/${language}/${rulename}.json`;
+            return this._http.get<HitInfo>(url);
+        });
     }
 }
