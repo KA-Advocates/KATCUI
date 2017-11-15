@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'lint/:lang',
     component: LintResultsComponent
-  }, {
+  },
+  {
     path: 'rule-errors/:lang',
     component: RuleErrorsComponent
   }

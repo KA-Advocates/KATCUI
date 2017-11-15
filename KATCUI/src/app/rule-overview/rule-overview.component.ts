@@ -1,3 +1,4 @@
+import { CurrentLanguageService } from '../current-language.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewEncapsulation, Injector, Input } from '@angular/core';
 
@@ -13,16 +14,18 @@ export class RuleOverviewComponent implements OnInit {
     @Input() filename: string;
 
     constructor(private router: Router,
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,
+        private curlang: CurrentLanguageService) {
     }
 
     viewHitlist(rule) {
-        const lang = this.route.snapshot.params['lang'];
+        const filename = this.route.snapshot.params['filename'];
+        const lang = this.curlang.languageSnapshot();
         console.log(`Viewing rule ${rule.name} for ${lang}`);
         this.router.navigate(['/hits',
             lang,
             rule.machine_name,
-            this.filename === null ? '' : this.filename
+            filename ? filename : ''
         ]);
     }
 
