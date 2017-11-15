@@ -12,7 +12,7 @@ export class CurrentLanguageService {
         return this._route.params.map(params => {
             const lang = params['lang'];
             console.log(`Current lang: ${lang}`);
-            return lang === null ? 'de' : lang;
+            return lang === undefined ? 'de' : lang;
         });
     }
 }

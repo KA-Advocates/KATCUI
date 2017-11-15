@@ -22,6 +22,7 @@ export class OverviewService {
         const urlProto = filename == null ? `index.json`: `${filename}/index.json`;
 
         return this._lang.language().mergeMap(language => {
+            console.log(`Requesting overview for ${language}`);
             return this._http.get<OverviewInfo>(
                 `${this.baseurl.getBaseURL()}/${language}/${urlProto}`).toPromise();
         })
