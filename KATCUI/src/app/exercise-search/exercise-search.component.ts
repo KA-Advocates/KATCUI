@@ -73,7 +73,6 @@ export class ExerciseSearchComponent implements OnInit {
     private getAllRuleURLs() {
         const language = this.curlang.language;
         return this._http.get(`/${language}/index.json`)
-            .map(res => res.json())
             .map(data => data.stats)
             .filter(stat => stat.num_hits > 0)
             .map(stat => `/${language}/${stat.machine_name}.json`)

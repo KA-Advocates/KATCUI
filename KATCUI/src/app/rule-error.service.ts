@@ -10,7 +10,6 @@ export class RuleErrorService {
 
     getRuleErrors() {
         const language = this.lang.language;
-        return this._http.get(`${language}/ruleerrors.json`)
-            .map(res => res.json());
+        return this._http.get(`${language}/ruleerrors.json`);
     }
 }
