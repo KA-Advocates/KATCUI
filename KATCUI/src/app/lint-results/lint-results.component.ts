@@ -20,9 +20,11 @@ export class LintResultsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.lang = this.langService.language;
+        this.langService.language().subscribe(lang => {
+            this.lang = lang;
+        });
         this._lintService.getLintResults()
-            .subscribe(data => this.lintEntries = data,
+            .subscribe(data => this.lintEntries = data),
             error => alert(`Could not load lint data: ${error.status}`));
     }
 

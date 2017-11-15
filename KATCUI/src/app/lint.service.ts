@@ -11,6 +11,6 @@ export class LintService {
 
     getLintResults() {
         const language = this.lang.language;
-        return this._http.get(`${language}/lint.json`)
+        return this._http.get<any[]>(`${language}/lint.json`);
     }
 }

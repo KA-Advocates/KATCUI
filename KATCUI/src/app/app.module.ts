@@ -1,3 +1,4 @@
+import { BaseURLService } from './base-url.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -52,7 +53,8 @@ import { StartRedirectComponent } from './start-redirect/start-redirect.componen
     CurrentLanguageService,
     HitListService,
     LintService,
-    RuleErrorService
+    RuleErrorService,
+    BaseURLService
   ],
   bootstrap: [AppComponent]
 })
